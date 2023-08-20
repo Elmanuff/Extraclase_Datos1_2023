@@ -7,6 +7,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class mainAplication extends Application {
+    public static Servidor servidor = new Servidor();
+    public static Cliente cliente = new Cliente();
+    public static ventana2_controller ventana2Controller = new ventana2_controller();
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(mainAplication.class.getResource("ventana1.fxml"));
@@ -19,8 +23,6 @@ public class mainAplication extends Application {
     public static void abrir_ventana_chat(boolean tipo) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(mainAplication.class.getResource("ventana2.fxml"));
         Scene secondaryScene = new Scene(fxmlLoader.load(), 600, 400);
-
-        ventana2_controller.tipo_usuario = tipo;
 
         Stage ventana_chat = new Stage();
 

@@ -22,12 +22,10 @@
       </font>
    </Label>
    <ScrollPane layoutX="14.0" layoutY="44.0" prefHeight="280.0" prefWidth="559.0">
-      <content>
-         <TextArea fx:id="panel_mensajes" prefHeight="600.0" prefWidth="540.0">
-            <font>
-               <Font size="20.0"/>
-            </font>
-         </TextArea>
-      </content>
+      <TextArea fx:id="panel_mensajes" prefHeight="600.0" prefWidth="540.0">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </TextArea>
    </ScrollPane>
 </Pane>

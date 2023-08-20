@@ -4,20 +4,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class ventana1_controller {
-    @FXML
-    private TextField texto_ip;
 
     @FXML
-    private TextField texto_puerto;
+    public TextField texto_ip;
 
     @FXML
-    protected void conectar(){
+    public TextField texto_puerto;
+
+    @FXML
+    public void conectar(){
+
         try{
-            Servidor servidor = new Servidor();
-            servidor.ejecutar(Integer.parseInt(texto_puerto.getText()));
+            mainAplication.servidor.ejecutar(Integer.parseInt(texto_puerto.getText()));
 
-            Cliente cliente = new Cliente();
-            cliente.ejecutar(texto_ip.getText(),Integer.parseInt(texto_puerto.getText()));
+            mainAplication.cliente.ejecutar(texto_ip.getText(),Integer.parseInt(texto_puerto.getText()));
 
         } catch (Exception e) {
 
