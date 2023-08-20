@@ -14,9 +14,14 @@ public class ventana1_controller {
     @FXML
     private TextField texto_puerto;
 
-    protected void conectar() throws IOException {
-        mainAplication.abrir_ventana_chat();
+    @FXML
+    protected void conectar(){
+        try{
+            Servidor.ejecutar(Integer.parseInt(texto_puerto.getText()));
+            Cliente.ejecutar(texto_ip.getText(),Integer.parseInt(texto_puerto.getText()));
+        } catch (Exception e) {
 
+            throw new RuntimeException(e);
+        }
     }
-
 }

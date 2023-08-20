@@ -21,6 +21,8 @@ public class ventana2_controller {
         panel_mensajes.appendText(texto_mensaje.getText()+"\n");
     }
 
+
+
     public static void nombre_usuario(String a){
         usuario_conversacion.setText(a);
     }
