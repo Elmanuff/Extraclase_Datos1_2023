@@ -1,7 +1,13 @@
 package com.javafx.extraclase_datos1_2023;
 
-import java.net.*;
-import java.io.*;
+import javafx.application.Platform;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.net.Socket;
+
 
 public class Cliente {
     public Socket socket;
@@ -17,6 +23,7 @@ public class Cliente {
                 recibir();
             } finally {
                 cerrar_Conexion();
+                Platform.exit();
             }
         });
         hilo.start();
@@ -53,9 +60,12 @@ public class Cliente {
 
     public void recibir() {
         try {
-            entrada.readUTF();
-            mainAplication.ventana2Controller.recibir_mensaje(entrada.readUTF());
-
+            while (true) {
+                String mensaje_recibido = entrada.readUTF();
+                Platform.runLater(() -> mainAplication.ventana2Controller_2.recibir_mensaje(mensaje_recibido));
+            }
+        } catch (EOFException e) {
+            System.out.println("Conexión cerrada por el servidor.");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

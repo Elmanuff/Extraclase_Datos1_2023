@@ -9,7 +9,8 @@ import java.io.IOException;
 public class mainAplication extends Application {
     public static Servidor servidor = new Servidor();
     public static Cliente cliente = new Cliente();
-    public static ventana2_controller ventana2Controller = new ventana2_controller();
+    public static ventana2_controller ventana2Controller_1;
+    public static ventana2_controller ventana2Controller_2;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -21,19 +22,28 @@ public class mainAplication extends Application {
     }
 
     public static void abrir_ventana_chat(boolean tipo) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(mainAplication.class.getResource("ventana2.fxml"));
-        Scene secondaryScene = new Scene(fxmlLoader.load(), 600, 400);
-
-        Stage ventana_chat = new Stage();
-
         if (tipo){
-            ventana_chat.setTitle("Servidor");
-        } else {
-            ventana_chat.setTitle("Cliente");
-        }
+            FXMLLoader fxmlLoader1 = new FXMLLoader(mainAplication.class.getResource("ventana2.fxml"));
+            Scene secondaryScene = new Scene(fxmlLoader1.load(), 600, 400);
 
-        ventana_chat.setScene(secondaryScene);
-        ventana_chat.show();
+            Stage ventana_chat = new Stage();
+
+            ventana2Controller_1 = new ventana2_controller();
+            ventana_chat.setTitle("Servidor");
+
+            ventana_chat.setScene(secondaryScene);
+            ventana_chat.show();
+        } else {
+            FXMLLoader fxmlLoader2 = new FXMLLoader(mainAplication.class.getResource("ventana2.fxml"));
+            Scene secondaryScene = new Scene(fxmlLoader2.load(), 600, 400);
+
+            Stage ventana_chat = new Stage();
+            ventana2Controller_2 = new ventana2_controller();
+            ventana_chat.setTitle("Cliente");
+
+            ventana_chat.setScene(secondaryScene);
+            ventana_chat.show();
+        }
     }
 
     public static void main(String[] args) {
