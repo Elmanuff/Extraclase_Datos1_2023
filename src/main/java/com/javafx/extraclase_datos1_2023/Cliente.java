@@ -33,9 +33,8 @@ public class Cliente {
         try {
             entrada.readUTF();
 
-            if (entrada.readUTF() !=null) {
-                ventana2_controller.recibir_mensaje(entrada.readUTF());
-            }
+            entrada.readUTF();
+            ventana2_controller.recibir_mensaje(entrada.readUTF());
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -55,17 +54,14 @@ public class Cliente {
     public void ejecutar(String ip, int puerto) throws IOException {
         mainAplication.abrir_ventana_chat(false);
 
-        Thread hilo = new Thread(new Runnable() {
-            @Override
-            public void run() {
+        Thread hilo = new Thread(() -> {
 
-                try {
-                    Conexion(ip, puerto);
-                    abrirFlujos();
-                    recibir();
-                } finally {
-                    cerrar_Conexion();
-                }
+            try {
+                Conexion(ip, puerto);
+                abrirFlujos();
+                recibir();
+            } finally {
+                cerrar_Conexion();
             }
         });
         hilo.start();

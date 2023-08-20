@@ -3,7 +3,6 @@ package com.javafx.extraclase_datos1_2023;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -21,8 +20,7 @@ public class mainAplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(mainAplication.class.getResource("ventana2.fxml"));
         Scene secondaryScene = new Scene(fxmlLoader.load(), 600, 400);
 
-        ventana2_controller ventana2Controller = new ventana2_controller();
-        ventana2Controller.tipo_usuario = tipo;
+        ventana2_controller.tipo_usuario = tipo;
 
         Stage ventana_chat = new Stage();
 

@@ -3,10 +3,8 @@ package com.javafx.extraclase_datos1_2023;
 import javafx.fxml.FXML;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import java.util.Scanner;
 
 public class ventana2_controller {
     @FXML
@@ -46,7 +44,7 @@ public class ventana2_controller {
         usuario_conversacion.setText(a);
     }
 
-    public void anadir_mensaje(String mensaje){
+    public void anadir_mensaje(){
         panel_mensajes.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         panel_mensajes.appendText(mensaje_auxiliar2+"\n");
     }

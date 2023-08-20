@@ -6,14 +6,13 @@ import java.io.*;
 public class Servidor {
 
     private Socket socket;
-    private ServerSocket serverSocket;
     private DataInputStream entrada;
     private DataOutputStream salida;
 
     public void Conexion(int puerto) {
         try {
-            serverSocket = new ServerSocket(puerto);
-            System.out.println("Esperando conexión entrante en el puerto " + String.valueOf(puerto) + "...");
+            ServerSocket serverSocket = new ServerSocket(puerto);
+            System.out.println("Esperando conexión entrante en el puerto " + puerto + "...");
             System.out.println("server");
 
             socket = serverSocket.accept();
@@ -38,9 +37,8 @@ public class Servidor {
     public void recibir(){
         try {
             entrada.readUTF();
-            if (entrada.readUTF() !=null){
-                ventana2_controller.recibir_mensaje(entrada.readUTF());
-            }
+            entrada.readUTF();
+            ventana2_controller.recibir_mensaje(entrada.readUTF());
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -59,19 +57,16 @@ public class Servidor {
 
     public void ejecutar(int puerto) throws IOException {
         mainAplication.abrir_ventana_chat(true);
-        Thread hilo = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Conexion(puerto);
-                try {
-                    entrada = new DataInputStream(socket.getInputStream());
-                    salida = new DataOutputStream(socket.getOutputStream());
-                    recibir();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } finally {
-                    cerrar_Conexion();
-                }
+        Thread hilo = new Thread(() -> {
+            Conexion(puerto);
+            try {
+                entrada = new DataInputStream(socket.getInputStream());
+                salida = new DataOutputStream(socket.getOutputStream());
+                recibir();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } finally {
+                cerrar_Conexion();
             }
         });
         hilo.start();
