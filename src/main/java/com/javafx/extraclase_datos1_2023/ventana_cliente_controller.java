@@ -9,13 +9,13 @@ import javafx.scene.control.TextField;
 
 public class ventana_cliente_controller {
     @FXML
-    private TextField texto_mensaje;
+    public TextField texto_mensaje;
 
     @FXML
-    private TextArea panel_mensajes;
+    public TextArea panel_mensajes;
 
     @FXML
-    private Label usuario_conversacion;
+    public Label usuario_conversacion;
 
     @FXML
     public void enviar_mensaje(){
