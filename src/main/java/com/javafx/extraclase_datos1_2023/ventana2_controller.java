@@ -15,9 +15,13 @@ public class ventana2_controller {
     private TextArea panel_mensajes;
 
     @FXML
-    private Label usuario_conversacion;
+    private static Label usuario_conversacion;
 
-    public void anadir_mensaje(String mensaje){
-        panel_mensajes.appendText(mensaje);
+    public void anadir_mensaje_propio(){
+        panel_mensajes.appendText(texto_mensaje.getText()+"\n");
+    }
+
+    public static void nombre_usuario(String a){
+        usuario_conversacion.setText(a);
     }
 }

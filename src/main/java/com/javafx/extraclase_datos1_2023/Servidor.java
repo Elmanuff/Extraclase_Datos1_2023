@@ -17,12 +17,12 @@ public class Servidor {
 
             socket = serverSocket.accept();
             //System.out.println("Conexión establecida con: " + socket.getInetAddress().getHostName() + "\n\n\n");
+            mainAplication.abrir_ventana_chat();
 
 
 
         } catch (Exception e) {
             System.out.println("error al iniciar conexion");
-            System.exit(0);
         }
     }}
 
