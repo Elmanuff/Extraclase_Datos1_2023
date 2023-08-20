@@ -23,24 +23,27 @@ public class mainAplication extends Application {
 
     public static void abrir_ventana_chat(boolean tipo) throws IOException {
         if (tipo){
-            FXMLLoader fxmlLoader1 = new FXMLLoader(mainAplication.class.getResource("ventana2.fxml"));
+            FXMLLoader fxmlLoader1 = new FXMLLoader(mainAplication.class.getResource("ventana2_nueva.fxml"));
             Scene secondaryScene = new Scene(fxmlLoader1.load(), 600, 400);
-
             Stage ventana_chat = new Stage();
 
             ventana2Controller_1 = new ventana2_controller();
-            ventana_chat.setTitle("Servidor");
+            fxmlLoader1.setController(ventana2Controller_1);
+            ventana2Controller_1.tipo_usuario = true;
 
+            ventana_chat.setTitle("Servidor");
             ventana_chat.setScene(secondaryScene);
             ventana_chat.show();
         } else {
-            FXMLLoader fxmlLoader2 = new FXMLLoader(mainAplication.class.getResource("ventana2.fxml"));
+            FXMLLoader fxmlLoader2 = new FXMLLoader(mainAplication.class.getResource("ventana2_nueva.fxml"));
             Scene secondaryScene = new Scene(fxmlLoader2.load(), 600, 400);
-
             Stage ventana_chat = new Stage();
-            ventana2Controller_2 = new ventana2_controller();
-            ventana_chat.setTitle("Cliente");
 
+            ventana2Controller_2 = new ventana2_controller();
+            fxmlLoader2.setController(ventana2Controller_2);
+            ventana2Controller_1.tipo_usuario = false;
+
+            ventana_chat.setTitle("Cliente");
             ventana_chat.setScene(secondaryScene);
             ventana_chat.show();
         }

@@ -34,8 +34,8 @@ public class ventana2_controller {
 
     public void recibir_mensaje(String mensaje){
         Platform.runLater(() -> {
-            panel_mensajes.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-            panel_mensajes.appendText(mensaje + "\n");
+        panel_mensajes.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+        panel_mensajes.appendText(mensaje + "\n");
         });
     }
 }
