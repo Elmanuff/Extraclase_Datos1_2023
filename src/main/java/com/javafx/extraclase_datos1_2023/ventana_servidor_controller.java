@@ -9,14 +9,13 @@ import javafx.scene.control.TextField;
 
 public class ventana_servidor_controller {
     @FXML
-    public TextField texto_mensaje;
+    private TextField texto_mensaje;
 
     @FXML
     private TextArea panel_mensajes;
 
     @FXML
-    public Label usuario_conversacion;
-
+    private Label usuario_conversacion;
 
     @FXML
     public void enviar_mensaje(){
@@ -27,9 +26,13 @@ public class ventana_servidor_controller {
 
     @FXML
     public void recibir_mensaje(String mensaje){
+        System.out.println("Recibiendo mensaje en ventana_servidor_controller: " + mensaje); // Depuración
         Platform.runLater(() -> {
-        panel_mensajes.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        panel_mensajes.appendText(mensaje + "\n");
+            if (panel_mensajes == null) {
+                System.out.println("panel_mensajes es nulo en ventana_servidor_controller");
+            }
+            panel_mensajes.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+            panel_mensajes.appendText(mensaje + "\n");
         });
     }
 }

@@ -4,22 +4,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javafx.extraclase_datos1_2023.ventana_cliente_controller">
-   <children>
-      <TextField fx:id="texto_mensaje" layoutX="14.0" layoutY="356.0" prefHeight="30.0" prefWidth="500.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.javafx.extraclase_datos1_2023.ventana_cliente_controller">
+   <TextField fx:id="texto_mensaje" layoutX="14.0" layoutY="356.0" prefHeight="30.0" prefWidth="500.0">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </TextField>
+   <Button layoutX="526.0" layoutY="356.0" mnemonicParsing="false" onAction="#enviar_mensaje" prefHeight="30.0"
+           prefWidth="60.0" text="Enviar">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Button>
+   <ScrollPane layoutX="14.0" layoutY="43.0" prefHeight="300.0" prefWidth="500.0">
+      <TextArea fx:id="panel_mensajes" prefHeight="500.0" prefWidth="480.0">
          <font>
-            <Font size="14.0" />
+            <Font size="14.0"/>
          </font>
-      </TextField>
-      <Button layoutX="526.0" layoutY="356.0" mnemonicParsing="false" onAction="#enviar_mensaje" prefHeight="30.0" prefWidth="60.0" text="Enviar">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <ScrollPane layoutX="14.0" layoutY="43.0" prefHeight="300.0" prefWidth="500.0">
-         <content>
-            <TextArea fx:id="panel_mensajes" prefHeight="500.0" prefWidth="480.0" />
-         </content>
-      </ScrollPane>
-   </children>
+      </TextArea>
+   </ScrollPane>
 </AnchorPane>

@@ -6,10 +6,10 @@ import javafx.scene.control.TextField;
 public class ventana_inicio_controller {
 
     @FXML
-    public TextField texto_ip;
+    private TextField texto_ip;
 
     @FXML
-    public TextField texto_puerto;
+    private TextField texto_puerto;
 
     @FXML
     public void conectar(){

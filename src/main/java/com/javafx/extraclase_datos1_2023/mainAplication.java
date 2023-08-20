@@ -9,7 +9,6 @@ import java.io.IOException;
 public class mainAplication extends Application {
     public static Servidor servidor = new Servidor();
     public static Cliente cliente = new Cliente();
-
     public static ventana_servidor_controller ventanaServidorController = new ventana_servidor_controller();
     public static ventana_cliente_controller ventanaClienteController = new ventana_cliente_controller();
 
@@ -28,17 +27,14 @@ public class mainAplication extends Application {
             Scene secondaryScene = new Scene(fxmlLoader1.load(), 600, 400);
             Stage ventana_chat = new Stage();
 
-            fxmlLoader1.setController(ventanaServidorController);
-
             ventana_chat.setTitle("Servidor");
             ventana_chat.setScene(secondaryScene);
             ventana_chat.show();
         } else {
             FXMLLoader fxmlLoader2 = new FXMLLoader(mainAplication.class.getResource("ventana_cliente.fxml"));
+            ventanaClienteController.initialize();
             Scene secondaryScene = new Scene(fxmlLoader2.load(), 600, 400);
             Stage ventana_chat = new Stage();
-
-            fxmlLoader2.setController(ventanaClienteController);
 
             ventana_chat.setTitle("Cliente");
             ventana_chat.setScene(secondaryScene);

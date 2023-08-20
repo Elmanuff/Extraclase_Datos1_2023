@@ -18,7 +18,10 @@
       </Button>
       <ScrollPane layoutX="14.0" layoutY="43.0" prefHeight="300.0" prefWidth="500.0">
          <content>
-            <TextArea fx:id="panel_mensajes" prefHeight="500.0" prefWidth="480.0" />
+            <TextArea fx:id="panel_mensajes" prefHeight="500.0" prefWidth="480.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextArea>
          </content>
       </ScrollPane>
    </children>
