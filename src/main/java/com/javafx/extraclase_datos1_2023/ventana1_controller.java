@@ -17,8 +17,12 @@ public class ventana1_controller {
     @FXML
     protected void conectar(){
         try{
-            Servidor.ejecutar(Integer.parseInt(texto_puerto.getText()));
-            Cliente.ejecutar(texto_ip.getText(),Integer.parseInt(texto_puerto.getText()));
+            Servidor servidor = new Servidor();
+            servidor.ejecutar(Integer.parseInt(texto_puerto.getText()));
+
+            Cliente cliente = new Cliente();
+            cliente.ejecutar(texto_ip.getText(),Integer.parseInt(texto_puerto.getText()));
+
         } catch (Exception e) {
 
             throw new RuntimeException(e);

@@ -5,12 +5,12 @@ import java.io.*;
 
 public class Servidor {
 
-    private static Socket socket;
-    private static ServerSocket serverSocket;
-    private static DataInputStream entrada;
-    private static DataOutputStream salida;
+    private Socket socket;
+    private ServerSocket serverSocket;
+    private DataInputStream entrada;
+    private DataOutputStream salida;
 
-    public static void Conexion(int puerto) {
+    public void Conexion(int puerto) {
         try {
             serverSocket = new ServerSocket(puerto);
             System.out.println("Esperando conexión entrante en el puerto " + String.valueOf(puerto) + "...");
@@ -29,21 +29,25 @@ public class Servidor {
     public void enviar(String mensaje){
         try {
             salida.writeUTF(mensaje);
-            salida.flush();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static void recibir(){
+    public void recibir(){
         try {
             entrada.readUTF();
+            if (entrada.readUTF() !=null){
+                ventana2_controller.recibir_mensaje(entrada.readUTF());
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static void cerrar_Conexion(){
+    public void cerrar_Conexion(){
         try {
             salida.close();
             entrada.close();
@@ -53,8 +57,8 @@ public class Servidor {
         }
     }
 
-    public static void ejecutar(int puerto) throws IOException {
-        mainAplication.abrir_ventana_chat();
+    public void ejecutar(int puerto) throws IOException {
+        mainAplication.abrir_ventana_chat(true);
         Thread hilo = new Thread(new Runnable() {
             @Override
             public void run() {

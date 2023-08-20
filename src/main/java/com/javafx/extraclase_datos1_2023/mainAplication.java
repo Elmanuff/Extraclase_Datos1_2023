@@ -17,12 +17,21 @@ public class mainAplication extends Application {
         stage.show();
     }
 
-    public static void abrir_ventana_chat() throws IOException {
+    public static void abrir_ventana_chat(boolean tipo) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(mainAplication.class.getResource("ventana2.fxml"));
         Scene secondaryScene = new Scene(fxmlLoader.load(), 600, 400);
 
+        ventana2_controller ventana2Controller = new ventana2_controller();
+        ventana2Controller.tipo_usuario = tipo;
+
         Stage ventana_chat = new Stage();
-        ventana_chat.setTitle("Chat");
+
+        if (tipo){
+            ventana_chat.setTitle("Servidor");
+        } else {
+            ventana_chat.setTitle("Cliente");
+        }
+
         ventana_chat.setScene(secondaryScene);
         ventana_chat.show();
     }
