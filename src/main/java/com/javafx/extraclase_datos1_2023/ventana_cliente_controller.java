@@ -6,9 +6,8 @@ import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
 
-public class ventana2_controller {
+public class ventana_cliente_controller {
     @FXML
     public TextField texto_mensaje;
 
@@ -18,20 +17,14 @@ public class ventana2_controller {
     @FXML
     public Label usuario_conversacion;
 
-    public boolean tipo_usuario;
-
     @FXML
     public void enviar_mensaje(){
         panel_mensajes.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         panel_mensajes.appendText(texto_mensaje.getText() + "\n");
-
-        if (tipo_usuario) {
-            mainAplication.servidor.enviar(texto_mensaje.getText());
-        } else {
-            mainAplication.cliente.enviar(texto_mensaje.getText());
-        }
+        mainAplication.cliente.enviar(texto_mensaje.getText());
     }
 
+    @FXML
     public void recibir_mensaje(String mensaje){
         Platform.runLater(() -> {
         panel_mensajes.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);

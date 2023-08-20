@@ -62,7 +62,8 @@ public class Cliente {
         try {
             while (true) {
                 String mensaje_recibido = entrada.readUTF();
-                Platform.runLater(() -> mainAplication.ventana2Controller_2.recibir_mensaje(mensaje_recibido));
+                Platform.runLater(() -> mainAplication.ventanaClienteController.recibir_mensaje(mensaje_recibido));
+                System.out.println(mensaje_recibido + "cliente");
             }
         } catch (EOFException e) {
             System.out.println("Conexión cerrada por el servidor.");

@@ -9,12 +9,13 @@ import java.io.IOException;
 public class mainAplication extends Application {
     public static Servidor servidor = new Servidor();
     public static Cliente cliente = new Cliente();
-    public static ventana2_controller ventana2Controller_1;
-    public static ventana2_controller ventana2Controller_2;
+
+    public static ventana_servidor_controller ventanaServidorController = new ventana_servidor_controller();
+    public static ventana_cliente_controller ventanaClienteController = new ventana_cliente_controller();
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(mainAplication.class.getResource("ventana1.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(mainAplication.class.getResource("ventana_inicio.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Aplicacion de Mensajeria");
         stage.setScene(scene);
@@ -23,25 +24,21 @@ public class mainAplication extends Application {
 
     public static void abrir_ventana_chat(boolean tipo) throws IOException {
         if (tipo){
-            FXMLLoader fxmlLoader1 = new FXMLLoader(mainAplication.class.getResource("ventana2_nueva.fxml"));
+            FXMLLoader fxmlLoader1 = new FXMLLoader(mainAplication.class.getResource("ventana_servidor.fxml"));
             Scene secondaryScene = new Scene(fxmlLoader1.load(), 600, 400);
             Stage ventana_chat = new Stage();
 
-            ventana2Controller_1 = new ventana2_controller();
-            fxmlLoader1.setController(ventana2Controller_1);
-            ventana2Controller_1.tipo_usuario = true;
+            fxmlLoader1.setController(ventanaServidorController);
 
             ventana_chat.setTitle("Servidor");
             ventana_chat.setScene(secondaryScene);
             ventana_chat.show();
         } else {
-            FXMLLoader fxmlLoader2 = new FXMLLoader(mainAplication.class.getResource("ventana2_nueva.fxml"));
+            FXMLLoader fxmlLoader2 = new FXMLLoader(mainAplication.class.getResource("ventana_cliente.fxml"));
             Scene secondaryScene = new Scene(fxmlLoader2.load(), 600, 400);
             Stage ventana_chat = new Stage();
 
-            ventana2Controller_2 = new ventana2_controller();
-            fxmlLoader2.setController(ventana2Controller_2);
-            ventana2Controller_1.tipo_usuario = false;
+            fxmlLoader2.setController(ventanaClienteController);
 
             ventana_chat.setTitle("Cliente");
             ventana_chat.setScene(secondaryScene);

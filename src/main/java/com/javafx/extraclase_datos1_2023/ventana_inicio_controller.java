@@ -3,7 +3,7 @@ package com.javafx.extraclase_datos1_2023;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class ventana1_controller {
+public class ventana_inicio_controller {
 
     @FXML
     public TextField texto_ip;
