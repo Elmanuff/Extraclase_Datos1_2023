@@ -26,6 +26,7 @@ public class mainAplication extends Application {
             FXMLLoader fxmlLoader1 = new FXMLLoader(mainAplication.class.getResource("ventana_servidor.fxml"));
             Scene secondaryScene = new Scene(fxmlLoader1.load(), 600, 400);
             Stage ventana_chat = new Stage();
+            ventanaServidorController.initialize();
 
             ventana_chat.setTitle("Servidor");
             ventana_chat.setScene(secondaryScene);

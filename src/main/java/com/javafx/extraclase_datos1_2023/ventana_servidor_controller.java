@@ -17,6 +17,8 @@ public class ventana_servidor_controller {
     @FXML
     public Label usuario_conversacion;
 
+    public String mensaje_recibido
+
     @FXML
     public void enviar_mensaje(){
         panel_mensajes_servidor.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
@@ -26,14 +28,19 @@ public class ventana_servidor_controller {
 
     @FXML
     public void recibir_mensaje(String mensaje){
-        System.out.println("Recibiendo mensaje en ventana_servidor_controller: " + mensaje); // Depuración
-        panel_mensajes_servidor.appendText("");
         Platform.runLater(() -> {
-            if (panel_mensajes_servidor == null) {
-                System.out.println("panel_mensajes es nulo en ventana_servidor_controller");
-            }
+            mensaje_recibido = mensaje;
             panel_mensajes_servidor.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-            panel_mensajes_servidor.appendText(mensaje + "\n");
+            System.out.println(mensaje);
         });
+        panel_mensajes_servidor.appendText(mensaje + "\n");
+    }
+
+    public void initialize() {
+        // Este método se ejecuta después de cargar el FXML
+        System.out.println("Initialize ventana_servidor_controller");
+        if (panel_mensajes_servidor == null) {
+            System.out.println("panel_mensajes es nulo en initialize de ventana_servidor_controller");
+        }
     }
 }
