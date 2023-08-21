@@ -3,7 +3,6 @@ package com.javafx.extraclase_datos1_2023;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.NodeOrientation;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -13,9 +12,6 @@ public class ventana_servidor_controller {
 
     @FXML
     public TextArea panel_mensajes_servidor = new TextArea();
-
-    @FXML
-    public Label usuario_conversacion;
 
     public String mensaje_recibido;
 
@@ -27,7 +23,7 @@ public class ventana_servidor_controller {
         });
     }
     public void mostrar_mensaje_servidor(String mensaje_recibido){
-        panel_mensajes_servidor.appendText("mensaje_recibido" + "\n");
+        panel_mensajes_servidor.appendText(mensaje_recibido + "\n");
     }
 
     @FXML

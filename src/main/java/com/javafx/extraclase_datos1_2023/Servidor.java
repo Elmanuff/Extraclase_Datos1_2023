@@ -28,10 +28,11 @@ public class Servidor {
 
     public void Conexion(int puerto) {
         try {
-            ServerSocket serverSocket = new ServerSocket(puerto);
-            System.out.println("Esperando conexión entrante en el puerto " + puerto + "...");
+            try (ServerSocket serverSocket = new ServerSocket(puerto)) {
+                System.out.println("Esperando conexión entrante en el puerto " + puerto + "...");
 
-            socket = serverSocket.accept();
+                socket = serverSocket.accept();
+            }
             System.out.println("Conexión establecida con: " + socket.getInetAddress().getHostName());
 
 
@@ -62,10 +63,13 @@ public class Servidor {
 
     public void recibir(){
         try {
-            while (true) {
+            //noinspection InfiniteLoopStatement
+            while (true)
+            {
                 String mensaje_recibido = entrada_servidor.readUTF();
                 Platform.runLater(() -> mainAplication.ventanaServidorController.recibir_mensaje(mensaje_recibido));
                 System.out.println(mensaje_recibido + " servidor");
+
             }
         } catch (EOFException e) {
             System.out.println("Cliente cerró la conexión.");

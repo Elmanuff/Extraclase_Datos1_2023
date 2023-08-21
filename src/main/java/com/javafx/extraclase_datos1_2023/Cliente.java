@@ -60,6 +60,7 @@ public class Cliente {
 
     public void recibir() {
         try {
+            //noinspection InfiniteLoopStatement
             while (true) {
                 String mensaje_recibido = entrada.readUTF();
                 Platform.runLater(() -> mainAplication.ventanaClienteController.recibir_mensaje(mensaje_recibido));
