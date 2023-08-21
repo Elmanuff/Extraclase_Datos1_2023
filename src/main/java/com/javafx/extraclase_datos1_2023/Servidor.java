@@ -65,7 +65,7 @@ public class Servidor {
             while (true) {
                 String mensaje_recibido = entrada_servidor.readUTF();
                 Platform.runLater(() -> mainAplication.ventanaServidorController.recibir_mensaje(mensaje_recibido));
-                System.out.println(mensaje_recibido + "servidor");
+                System.out.println(mensaje_recibido + " servidor");
             }
         } catch (EOFException e) {
             System.out.println("Cliente cerró la conexión.");

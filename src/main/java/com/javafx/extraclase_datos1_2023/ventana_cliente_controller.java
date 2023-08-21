@@ -20,21 +20,25 @@ public class ventana_cliente_controller {
     public String mensaje_recibido;
 
     @FXML
+    public void recibir_mensaje(String mensaje){
+        Platform.runLater(() -> {
+            mensaje_recibido = mensaje;
+            mostrar_mensaje(mensaje_recibido);
+        });
+    }
+
+    public void mostrar_mensaje(String mensaje){
+        panel_mensajes_cliente.appendText("mensaje_recibido");
+    }
+
+    @FXML
     public void enviar_mensaje(){
         panel_mensajes_cliente.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         panel_mensajes_cliente.appendText(texto_mensaje_cliente.getText() + "\n");
         mainAplication.cliente.enviar(texto_mensaje_cliente.getText());
     }
 
-    @FXML
-    public void recibir_mensaje(String mensaje){
-        Platform.runLater(() -> {
-            mensaje_recibido = mensaje;
-            panel_mensajes_cliente.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-            System.out.println(mensaje);
-        });
-        panel_mensajes_cliente.appendText(mensaje_recibido + "\n");
-    }
+
 
     public void initialize() {
         System.out.println("Initialize ventana_servidor_controller");

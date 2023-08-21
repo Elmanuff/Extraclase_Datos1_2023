@@ -17,7 +17,18 @@ public class ventana_servidor_controller {
     @FXML
     public Label usuario_conversacion;
 
-    public String mensaje_recibido
+    public String mensaje_recibido;
+
+    @FXML
+    public void recibir_mensaje(String mensaje){
+        Platform.runLater(() -> {
+            mensaje_recibido = mensaje;
+            mostrar_mensaje(mensaje_recibido);
+        });
+    }
+    public void mostrar_mensaje(String mensaje){
+        panel_mensajes_servidor.appendText("mensaje_recibido");
+    }
 
     @FXML
     public void enviar_mensaje(){
@@ -26,15 +37,6 @@ public class ventana_servidor_controller {
         mainAplication.servidor.enviar(texto_mensaje_servidor.getText());
     }
 
-    @FXML
-    public void recibir_mensaje(String mensaje){
-        Platform.runLater(() -> {
-            mensaje_recibido = mensaje;
-            panel_mensajes_servidor.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-            System.out.println(mensaje);
-        });
-        panel_mensajes_servidor.appendText(mensaje + "\n");
-    }
 
     public void initialize() {
         // Este método se ejecuta después de cargar el FXML
