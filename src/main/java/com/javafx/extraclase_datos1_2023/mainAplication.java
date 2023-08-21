@@ -32,9 +32,9 @@ public class mainAplication extends Application {
             ventana_chat.show();
         } else {
             FXMLLoader fxmlLoader2 = new FXMLLoader(mainAplication.class.getResource("ventana_cliente.fxml"));
-            ventanaClienteController.initialize();
             Scene secondaryScene = new Scene(fxmlLoader2.load(), 600, 400);
             Stage ventana_chat = new Stage();
+            ventanaClienteController.initialize();
 
             ventana_chat.setTitle("Cliente");
             ventana_chat.setScene(secondaryScene);
