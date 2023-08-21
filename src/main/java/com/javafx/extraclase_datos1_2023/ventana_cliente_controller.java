@@ -23,12 +23,12 @@ public class ventana_cliente_controller {
     public void recibir_mensaje(String mensaje){
         Platform.runLater(() -> {
             mensaje_recibido = mensaje;
-            mostrar_mensaje(mensaje_recibido);
+            mostrar_mensaje_cliente(mensaje);
         });
     }
 
-    public void mostrar_mensaje(String mensaje){
-        panel_mensajes_cliente.appendText("mensaje_recibido");
+    public void mostrar_mensaje_cliente(String mensaje_recibido){
+        panel_mensajes_cliente.appendText("mensaje_recibido" + "\n");
     }
 
     @FXML

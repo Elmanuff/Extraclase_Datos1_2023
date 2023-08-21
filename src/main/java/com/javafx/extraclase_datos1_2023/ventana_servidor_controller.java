@@ -23,11 +23,11 @@ public class ventana_servidor_controller {
     public void recibir_mensaje(String mensaje){
         Platform.runLater(() -> {
             mensaje_recibido = mensaje;
-            mostrar_mensaje(mensaje_recibido);
+            mostrar_mensaje_servidor(mensaje);
         });
     }
-    public void mostrar_mensaje(String mensaje){
-        panel_mensajes_servidor.appendText("mensaje_recibido");
+    public void mostrar_mensaje_servidor(String mensaje_recibido){
+        panel_mensajes_servidor.appendText("mensaje_recibido" + "\n");
     }
 
     @FXML
