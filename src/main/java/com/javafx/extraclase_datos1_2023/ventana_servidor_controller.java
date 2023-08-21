@@ -22,8 +22,8 @@ public class ventana_servidor_controller {
             mostrar_mensaje_servidor(mensaje);
         });
     }
-    public void mostrar_mensaje_servidor(String mensaje_recibido){
-        panel_mensajes_servidor.appendText(mensaje_recibido + "\n");
+    public void mostrar_mensaje_servidor(String msj){
+        panel_mensajes_servidor.appendText(msj + "\n");
     }
 
     @FXML
