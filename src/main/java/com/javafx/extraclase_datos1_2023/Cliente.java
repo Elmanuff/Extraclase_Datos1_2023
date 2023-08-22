@@ -13,6 +13,7 @@ public class Cliente {
     public Socket socket;
     public DataInputStream entrada;
     public DataOutputStream salida;
+
     public void ejecutar(String ip, int puerto) throws IOException {
         mainAplication.abrir_ventana_chat(false);
 
@@ -28,7 +29,6 @@ public class Cliente {
         });
         hilo.start();
     }
-
     public void Conexion(String ip, int puerto) {
         try {
             socket = new Socket(ip, puerto);
