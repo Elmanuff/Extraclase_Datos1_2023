@@ -55,7 +55,7 @@ public class Servidor {
     public void enviar(String mensaje){
         try {
             salida_servidor.writeUTF(mensaje);
-
+            salida_servidor.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -66,9 +66,9 @@ public class Servidor {
             //noinspection InfiniteLoopStatement
             while (true)
             {
-                String mensaje_recibido = entrada_servidor.readUTF();
-                Platform.runLater(() -> mainAplication.ventanaServidorController.recibir_mensaje(mensaje_recibido));
-                System.out.println(mensaje_recibido + " servidor");
+                String mensaje_recibido_servidor = entrada_servidor.readUTF();
+                Platform.runLater(() -> mainAplication.ventanaServidorController.recibir_mensaje(mensaje_recibido_servidor));
+                System.out.println("Cliente dice: " + mensaje_recibido_servidor);
 
             }
         } catch (EOFException e) {

@@ -2,7 +2,6 @@ package com.javafx.extraclase_datos1_2023;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -24,13 +23,11 @@ public class ventana_cliente_controller {
     }
 
     public void mostrar_mensaje_cliente(String msj){
-
-            panel_mensajes_cliente.appendText( msj + "\n");
+            panel_mensajes_cliente.appendText( mensaje_recibido + "\n");
     }
 
     @FXML
     public void enviar_mensaje(){
-        panel_mensajes_cliente.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         panel_mensajes_cliente.appendText(texto_mensaje_cliente.getText() + "\n");
         mainAplication.cliente.enviar(texto_mensaje_cliente.getText());
     }
