@@ -23,7 +23,7 @@ public class ventana_cliente_controller {
     }
 
     public void mostrar_mensaje_cliente(String msj){
-            panel_mensajes_cliente.appendText( mensaje_recibido + "\n");
+            panel_mensajes_cliente.appendText( msj + "\n");
     }
 
     @FXML
