@@ -6,13 +6,11 @@ import java.net.*;
 import java.io.*;
 
 public class Servidor {
-
     public Socket socket;
     public DataInputStream entrada_servidor;
     public DataOutputStream salida_servidor;
 
     public void ejecutar(int puerto) throws IOException {
-        mainAplication.abrir_ventana_chat(true);
         Thread hilo = new Thread(() -> {
             try {
                 Conexion(puerto);
@@ -24,13 +22,13 @@ public class Servidor {
             }
         });
         hilo.start();
+        MainApplication.abrir_ventana_chat(true);
     }
 
     public void Conexion(int puerto) {
         try {
             try (ServerSocket serverSocket = new ServerSocket(puerto)) {
-                System.out.println("Esperando conexión entrante en el puerto " + puerto + "...");
-
+                System.out.println("Esperando conexión en el puerto " + puerto + "...");
                 socket = serverSocket.accept();
             }
             System.out.println("Conexión establecida con: " + socket.getInetAddress().getHostName());
@@ -38,7 +36,7 @@ public class Servidor {
 
 
         } catch (Exception e) {
-            System.out.println("error al iniciar conexion");
+            System.out.println("Error al iniciar conexion");
         }
     }
 
@@ -48,7 +46,7 @@ public class Servidor {
             salida_servidor = new DataOutputStream(socket.getOutputStream());
             salida_servidor.flush();
         } catch (IOException e) {
-            System.out.println("Error en la apertura de flujos");
+            System.out.println("Error al abrir flujos");
         }
     }
 
@@ -66,12 +64,12 @@ public class Servidor {
             while (true)
             {
                 String mensaje_recibido_servidor = entrada_servidor.readUTF();
-                Platform.runLater(() -> mainAplication.ventanaServidorController.recibir_mensaje(mensaje_recibido_servidor));
+                Platform.runLater(() -> MainApplication.ventanaServidorController.recibir_mensaje(mensaje_recibido_servidor));
                 System.out.println("Cliente dice: " + mensaje_recibido_servidor);
 
             }
         } catch (EOFException e) {
-            System.out.println("Cliente cerró la conexión.");
+            System.out.println("Conexión cerrada por el cliente");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

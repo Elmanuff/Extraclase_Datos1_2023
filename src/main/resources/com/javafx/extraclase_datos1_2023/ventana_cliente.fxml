@@ -15,9 +15,16 @@
          <Font size="14.0" />
       </font>
    </Button>
-   <TextArea fx:id="panel_mensajes_cliente" layoutX="14.0" layoutY="14.0" prefHeight="329.0" prefWidth="480.0">
+   <ScrollPane layoutX="14.0" layoutY="39.0" prefHeight="310.0" prefWidth="500.0">
+      <TextArea fx:id="panel_mensajes_cliente" prefHeight="600.0" prefWidth="480.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+   </ScrollPane>
+   <Button layoutX="521.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiar_panel" prefHeight="30.0" prefWidth="70.0" text="Limpiar">
       <font>
          <Font size="14.0" />
       </font>
-   </TextArea>
+   </Button>
 </AnchorPane>
