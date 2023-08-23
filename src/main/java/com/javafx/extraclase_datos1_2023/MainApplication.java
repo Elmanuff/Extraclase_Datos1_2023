@@ -18,6 +18,7 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Aplicacion de Mensajeria");
         stage.setScene(scene);
+        stage.resizableProperty().setValue(false);
         stage.show();
     }
 
@@ -26,6 +27,7 @@ public class MainApplication extends Application {
             FXMLLoader fxmlLoader1 = new FXMLLoader(MainApplication.class.getResource("ventana_servidor.fxml"));
             Scene secondaryScene = new Scene(fxmlLoader1.load(), 600, 400);
             Stage ventana_chat = new Stage();
+            ventana_chat.resizableProperty().setValue(false);
             ventanaServidorController = fxmlLoader1.getController();
 
             ventana_chat.setTitle("Servidor");
@@ -36,6 +38,7 @@ public class MainApplication extends Application {
             FXMLLoader fxmlLoader2 = new FXMLLoader(MainApplication.class.getResource("ventana_cliente.fxml"));
             Scene secondaryScene = new Scene(fxmlLoader2.load(), 600, 400);
             Stage ventana_chat = new Stage();
+            ventana_chat.resizableProperty().setValue(false);
             ventanaClienteController = fxmlLoader2.getController();
 
 
