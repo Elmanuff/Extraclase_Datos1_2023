@@ -31,6 +31,7 @@ public class mainAplication extends Application {
             ventana_chat.setTitle("Servidor");
             ventana_chat.setScene(secondaryScene);
             ventana_chat.show();
+
         } else {
             FXMLLoader fxmlLoader2 = new FXMLLoader(mainAplication.class.getResource("ventana_cliente.fxml"));
             Scene secondaryScene = new Scene(fxmlLoader2.load(), 600, 400);

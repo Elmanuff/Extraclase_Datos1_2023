@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javafx.extraclase_datos1_2023.ventana_cliente_controller">
-   <TextField fx:id="texto_mensaje_cliente" layoutX="14.0" layoutY="356.0" prefHeight="30.0" prefWidth="500.0" >
+   <TextField fx:id="texto_mensaje_cliente" layoutX="14.0" layoutY="356.0" prefHeight="30.0" prefWidth="500.0">
       <font>
          <Font size="14.0" />
       </font>
@@ -15,11 +15,9 @@
          <Font size="14.0" />
       </font>
    </Button>
-   <ScrollPane layoutX="14.0" layoutY="43.0" prefHeight="300.0" prefWidth="500.0">
-      <TextArea fx:id="panel_mensajes_cliente" prefHeight="500.0" prefWidth="480.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextArea>
-   </ScrollPane>
+   <TextArea fx:id="panel_mensajes_cliente" layoutX="14.0" layoutY="14.0" prefHeight="329.0" prefWidth="480.0">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </TextArea>
 </AnchorPane>

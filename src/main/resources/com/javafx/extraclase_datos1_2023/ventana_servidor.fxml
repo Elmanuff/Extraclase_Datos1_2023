@@ -16,13 +16,10 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="14.0" layoutY="43.0" prefHeight="300.0" prefWidth="500.0">
-         <content>
-            <TextArea fx:id="panel_mensajes_servidor" prefHeight="500.0" prefWidth="480.0">
-               <font>
-                  <Font size="14.0" />
-               </font></TextArea>
-         </content>
-      </ScrollPane>
+      <TextArea fx:id="panel_mensajes_servidor" layoutX="14.0" layoutY="15.0" prefHeight="331.0" prefWidth="480.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
    </children>
 </AnchorPane>

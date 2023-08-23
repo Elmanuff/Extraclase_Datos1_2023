@@ -63,7 +63,6 @@ public class Servidor {
 
     public void recibir(){
         try {
-            //noinspection InfiniteLoopStatement
             while (true)
             {
                 String mensaje_recibido_servidor = entrada_servidor.readUTF();

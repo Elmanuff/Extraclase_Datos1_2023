@@ -60,11 +60,10 @@ public class Cliente {
 
     public void recibir() {
         try {
-            //noinspection InfiniteLoopStatement
             while (true) {
                 String mensaje_recibido_cliente = entrada.readUTF();
                 Platform.runLater(() -> mainAplication.ventanaClienteController.recibir_mensaje(mensaje_recibido_cliente));
-                System.out.println("Servidor dice: " + mensaje_recibido_cliente);
+                System.out.println("Servidor/Cliente dice: " + mensaje_recibido_cliente);
             }
         } catch (EOFException e) {
             System.out.println("Conexión cerrada por el servidor.");
@@ -72,6 +71,7 @@ public class Cliente {
             throw new RuntimeException(e);
         }
     }
+
 
     public void cerrar_Conexion(){
         try {
