@@ -67,7 +67,6 @@ public class Servidor {
             {
                 String mensaje_recibido_servidor = entrada_servidor.readUTF();
                 Platform.runLater(() -> com.Servidor.MainServidor.ventanaServidorController.recibirMensaje(mensaje_recibido_servidor));
-                System.out.println("Cliente dice: " + mensaje_recibido_servidor);
 
             }
         } catch (EOFException e) {
