@@ -12,6 +12,7 @@ public class Cliente {
     public DataInputStream entrada_cliente;
     public DataOutputStream salida_cliente;
 
+
     public void ejecutar(String ip, int puerto){
         Thread hilo = new Thread(() -> {
             try {
@@ -33,7 +34,7 @@ public class Cliente {
             }
         });
         hilo.start();
-    }
+    } //Esta funcion sirve para ejecutar la parte del socket del cliente
 
     public boolean conexion(String ip, int puerto) {
         try {
@@ -46,7 +47,7 @@ public class Cliente {
             Platform.runLater(() ->MainCliente.ventanaInicioCliente.validarDatos());
             return false;
         }
-    }
+    } //Esta funcion sirve para validar los datos y avisar si se esta dando la conexion al socket
 
     public void abrirFlujos() {
         try {
@@ -56,7 +57,7 @@ public class Cliente {
         } catch (IOException e) {
             System.out.println("Error al abrir flujos");
         }
-    }
+    } // Esta funcion sirve para abrir los flujos de datos entre el cliente y el server, lo cual permite que se puedan enviar datos
 
     public void enviar(String mensaje){
         try {
@@ -65,7 +66,7 @@ public class Cliente {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
+    } // Esta funcion permite que se envien datos, o mas especificamente, el mensaje que se quiere enviar del cliente al servidor
 
     public void recibir() {
         try {
@@ -78,8 +79,7 @@ public class Cliente {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
+    } //Esta funcion permite que el cliente este siempre pendiente a cuando le llegue un mensaje, y cuando le llegue, llamar a al controlador de la ventana para mostrarlo.
 
     public void cerrarConexion(){
         try {
@@ -89,6 +89,6 @@ public class Cliente {
         } catch (IOException e) {
             System.out.println("No se cerro la conexion correctamente");
         }
-    }
+    } // Esta funcion permite cerrar la conexion entre el cliente y el servidor
 }
 
