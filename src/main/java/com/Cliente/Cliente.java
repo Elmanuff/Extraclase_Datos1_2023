@@ -21,7 +21,6 @@ public class Cliente {
      * Esta funcion sirve para ejecutar la parte del socket del cliente
      * @param ip La ip que se necesita para la conexion, en este caso es la default
      * @param puerto El puerto que se va a utilizar para la conexion.
-     * @return Una llamada para abrir la ventana de chat
      */
     public void ejecutar(String ip, int puerto){
         Thread hilo = new Thread(() -> {
@@ -66,7 +65,6 @@ public class Cliente {
     }
     /**
      * Esta funcion sirve para abrir los flujos de datos entre el cliente y el server, lo cual permite que se puedan enviar datos
-     * @return La apertura de los flujos para enviar y recibir datos
      */
     public void abrirFlujos() {
         try {
@@ -80,7 +78,6 @@ public class Cliente {
     /**
      * Esta funcion permite que se envien datos, o mas especificamente, el mensaje que se quiere enviar del cliente al servidor
      * @param mensaje el mensaje que se escribe en la TextBox
-     * @return El mensaje
      */
     public void enviar(String mensaje){
         try {
@@ -92,7 +89,6 @@ public class Cliente {
     }
     /**
      * Esta funcion permite que el cliente este siempre pendiente a cuando le llegue un mensaje, y cuando le llegue, llamar a al controlador de la ventana para mostrarlo.
-     * @return Una llamada para mostrar el mensaje en la ventana
      */
     public void recibir() {
         try {
@@ -108,7 +104,6 @@ public class Cliente {
     }
     /**
      * Esta funcion permite cerrar la conexion entre el cliente y el servidor
-     * @return Cierre de la conexion.
      */
     public void cerrarConexion(){
         try {
