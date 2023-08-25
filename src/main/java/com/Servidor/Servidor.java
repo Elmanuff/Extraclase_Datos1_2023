@@ -28,7 +28,7 @@ public class Servidor {
             }
         });
         hilo.start();
-    }
+    } // Esta funcion ejecuta el hilo que permite que el servidor este siempre escuchando los datos que envia el cliente por medio del socket.
 
     public void conexion(int puerto) {
         try {
@@ -40,7 +40,7 @@ public class Servidor {
         } catch (Exception e) {
             System.out.println("Error al iniciar conexion");
         }
-    }
+    } // Verifica el socket con el que se va a conectar el cliente y genera los prints para mantener un mejor control.
 
     public void abrirFlujos() {
         try {
@@ -50,7 +50,7 @@ public class Servidor {
         } catch (IOException e) {
             System.out.println("Error al abrir flujos");
         }
-    }
+    } // Genera los flujos que sirven para recibir los datos y enviar los datos.
 
     public void enviar(String mensaje){
         try {
@@ -59,7 +59,7 @@ public class Servidor {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
+    } // Permite enviar el mensaje que se escribe.
 
     public void recibir(){
         try {
@@ -74,7 +74,7 @@ public class Servidor {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
+    } // Permite recibir el mensaje y enviarlo a la ventana de chat para que sea puesto en esta.
 
     public void cerrarConexion(){
         try {
@@ -84,5 +84,5 @@ public class Servidor {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
+    }// Cierra la conexion del servidor.
 }

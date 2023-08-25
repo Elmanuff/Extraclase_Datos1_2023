@@ -18,7 +18,7 @@ public class MainServidor extends Application {
         stage.setScene(scene);
         stage.resizableProperty().setValue(false);
         stage.show();
-    }
+    } // Esta funcion carga el archivo FXML y le configura los parametros.
 
     public static void abrirVentanaChat() throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(MainServidor.class.getResource("ChatServidor.fxml"));
@@ -30,9 +30,9 @@ public class MainServidor extends Application {
         ventana_chat.setTitle("Servidor");
         ventana_chat.setScene(servidorScene);
         ventana_chat.show();
-    }
+    } // Esta funcion Carga el archivo y la ventana para que posteriormente sea controlada por el Controller.
 
     public static void main(String[] args) {
         launch();
-    }
+    } // Solo carga
 }

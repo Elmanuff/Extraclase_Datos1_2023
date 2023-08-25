@@ -10,7 +10,7 @@
             <Font size="14.0" />
         </font>
     </TextField>
-    <Button layoutX="526.0" layoutY="356.0" mnemonicParsing="false" onAction="#enviarMensaje" prefHeight="30.0" prefWidth="60.0" text="Enviar">
+    <Button layoutX="526.0" layoutY="356.0" mnemonicParsing="false" onAction="#mostrarMensaje" prefHeight="30.0" prefWidth="60.0" text="Enviar">
         <font>
             <Font size="14.0" />
         </font>

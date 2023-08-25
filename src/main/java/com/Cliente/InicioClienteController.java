@@ -28,11 +28,12 @@ public class InicioClienteController {
         }else {
             validarDatos();
         }
-    }
+    } //Esta funcion permite validar si los puertos son iguales y conectar las ventanas del cliente y el servidor.
+
 
     @FXML
     public void validarDatos(){
         validacion_datos.setText("Ip o puerto invalidos");
         validacion_datos.setTextFill(Color.RED);
-    }
+    } // Muestra el mensaje de cuando los datos son invalidos
 }

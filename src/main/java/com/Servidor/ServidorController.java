@@ -13,7 +13,7 @@ public class ServidorController {
     @FXML
     public void recibirMensaje(String mensaje){
         panel_mensajes_servidor.appendText("Cliente: " + mensaje + "\n");
-    }
+    } //Muestra el texto recibido en la ventana de chat.
 
     @FXML
     public void enviarMensaje(){
@@ -23,9 +23,9 @@ public class ServidorController {
             com.Servidor.MainServidor.servidor.enviar(mensaje);
             texto_mensaje_servidor.clear();
         }
-    }
+    } // Muestra el texto enviado en la ventana de chat.
 
     public void limpiarPanel(){
         panel_mensajes_servidor.clear();
-    }
+    } //Limpia la ventana de chat
 }

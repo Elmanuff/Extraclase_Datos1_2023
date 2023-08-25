@@ -20,7 +20,7 @@ public class MainCliente extends Application {
         stage.setScene(scene);
         stage.resizableProperty().setValue(false);
         stage.show();
-    }
+    } //Esta funcion carga el archivo FXML de la ventana de chat del cliente, crea la scena, el titulo y todo lo necesario para la interfaz grafica.
 
     public static void abrirVentanaChat() throws IOException {
         FXMLLoader fxmlLoader2 = new FXMLLoader(MainCliente.class.getResource("ChatCliente.fxml"));
@@ -33,9 +33,9 @@ public class MainCliente extends Application {
         ventana_chat.setScene(clienteScene);
         ventana_chat.show();
 
-    }
+    } // Esta funcion carga la ventana de chat y el controlador
 
     public static void main(String[] args) {
         launch();
-    }
+    } // Esta funcion nada mas carga
 }

@@ -7,12 +7,22 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 
+/**
+ * Esta clase sirve para manipular la conexion del cliente.
+ */
+
 public class Cliente {
     public Socket socket;
     public DataInputStream entrada_cliente;
     public DataOutputStream salida_cliente;
 
 
+    /**
+     * Esta funcion sirve para ejecutar la parte del socket del cliente
+     * @param ip La ip que se necesita para la conexion, en este caso es la default
+     * @param puerto El puerto que se va a utilizar para la conexion.
+     * @return Una llamada para abrir la ventana de chat
+     */
     public void ejecutar(String ip, int puerto){
         Thread hilo = new Thread(() -> {
             try {
@@ -34,8 +44,14 @@ public class Cliente {
             }
         });
         hilo.start();
-    } //Esta funcion sirve para ejecutar la parte del socket del cliente
+    }
 
+    /**
+     * Esta funcion sirve para validar los datos y avisar si se esta dando la conexion al socket
+     * @param ip La ip, default del equipo
+     * @param puerto El puerto a escoger para realizar el chat
+     * @return Un mensaje de conexion y una llamada a validacion de datos
+     */
     public boolean conexion(String ip, int puerto) {
         try {
             socket = new Socket(ip, puerto);
@@ -47,8 +63,11 @@ public class Cliente {
             Platform.runLater(() ->MainCliente.ventanaInicioCliente.validarDatos());
             return false;
         }
-    } //Esta funcion sirve para validar los datos y avisar si se esta dando la conexion al socket
-
+    }
+    /**
+     * Esta funcion sirve para abrir los flujos de datos entre el cliente y el server, lo cual permite que se puedan enviar datos
+     * @return La apertura de los flujos para enviar y recibir datos
+     */
     public void abrirFlujos() {
         try {
             entrada_cliente = new DataInputStream(socket.getInputStream());
@@ -57,8 +76,12 @@ public class Cliente {
         } catch (IOException e) {
             System.out.println("Error al abrir flujos");
         }
-    } // Esta funcion sirve para abrir los flujos de datos entre el cliente y el server, lo cual permite que se puedan enviar datos
-
+    }
+    /**
+     * Esta funcion permite que se envien datos, o mas especificamente, el mensaje que se quiere enviar del cliente al servidor
+     * @param mensaje el mensaje que se escribe en la TextBox
+     * @return El mensaje
+     */
     public void enviar(String mensaje){
         try {
             salida_cliente.writeUTF(mensaje);
@@ -66,8 +89,11 @@ public class Cliente {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    } // Esta funcion permite que se envien datos, o mas especificamente, el mensaje que se quiere enviar del cliente al servidor
-
+    }
+    /**
+     * Esta funcion permite que el cliente este siempre pendiente a cuando le llegue un mensaje, y cuando le llegue, llamar a al controlador de la ventana para mostrarlo.
+     * @return Una llamada para mostrar el mensaje en la ventana
+     */
     public void recibir() {
         try {
             while (true) {
@@ -79,8 +105,11 @@ public class Cliente {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    } //Esta funcion permite que el cliente este siempre pendiente a cuando le llegue un mensaje, y cuando le llegue, llamar a al controlador de la ventana para mostrarlo.
-
+    }
+    /**
+     * Esta funcion permite cerrar la conexion entre el cliente y el servidor
+     * @return Cierre de la conexion.
+     */
     public void cerrarConexion(){
         try {
             entrada_cliente.close();
@@ -89,6 +118,6 @@ public class Cliente {
         } catch (IOException e) {
             System.out.println("No se cerro la conexion correctamente");
         }
-    } // Esta funcion permite cerrar la conexion entre el cliente y el servidor
+    }
 }
 
