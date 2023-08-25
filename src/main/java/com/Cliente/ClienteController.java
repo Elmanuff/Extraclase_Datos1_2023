@@ -10,10 +10,17 @@ public class ClienteController {
     @FXML
     public TextArea panel_mensajes_cliente = new TextArea();
 
+    /**
+     * Esta funcion solo sirve para mostrar el mensaje en pantalla
+     * @param mensaje El mensaje enviado por el servidor
+     */
     @FXML
     public void recibirMensaje(String mensaje){
         panel_mensajes_cliente.appendText("Servidor: " + mensaje + "\n");
-    } // Esta funcion solo sirve para mostrar el mensaje en pantalla
+    }
+    /**
+     * Esta funcion permite obtener el mensaje que se escribe y mostrarlo en pantalla
+     */
     @FXML
     public void mostrarMensaje(){
         String mensaje = texto_mensaje_cliente.getText();
@@ -22,8 +29,11 @@ public class ClienteController {
             MainCliente.cliente.enviar(mensaje);
             texto_mensaje_cliente.clear();
         }
-    } //Esta funcion permite obtener el mensaje que se escribe y mostrarlo en pantalla
+    }
+    /**
+     * Permite limpiar el panel de mensajes para mostrar nuevos
+     */
     public void limpiarPanel(){
         panel_mensajes_cliente.clear();
-    } //Permite limpiar el panel de mensajes para mostrar nuevos
+    }
 }
