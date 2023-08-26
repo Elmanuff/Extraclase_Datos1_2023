@@ -36,7 +36,6 @@ public class Cliente {
                 }
                 abrirFlujos();
                 recibir();
-                imprimir_javadoc();
 
             } finally {
                 cerrarConexion();
@@ -47,7 +46,7 @@ public class Cliente {
     }
 
     /**
-     * Esta funcion sirve para validar los datos y avisar si se esta dando la conexion al socket
+     * Esta funcion crea el socket y sirve para validar los datos y avisar si se esta dando la conexion al socket
      * @param ip La ip, default del equipo
      * @param puerto El puerto a escoger para realizar el chat
      * @return Un mensaje de conexion y una llamada a validacion de datos
@@ -115,9 +114,5 @@ public class Cliente {
             System.out.println("No se cerro la conexion correctamente");
         }
     }
-    public void imprimir_javadoc(){
-
-    }
-
 }
 
