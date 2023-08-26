@@ -5,6 +5,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
+/**
+ * Esta clase controla la ventana de inicio del cliente.
+ */
 public class InicioClienteController {
     @FXML
     public TextField texto_ip;
@@ -13,6 +16,9 @@ public class InicioClienteController {
     @FXML
     public Label validacion_datos = new Label();
 
+    /**
+     * Esta funcion permite validar si los puertos son iguales y conectar las ventanas del cliente y el servidor.
+     */
     @FXML
     public void conectar(){
         if (!texto_puerto.getText().isEmpty() && !texto_ip.getText().isEmpty()) {
@@ -28,12 +34,14 @@ public class InicioClienteController {
         }else {
             validarDatos();
         }
-    } //Esta funcion permite validar si los puertos son iguales y conectar las ventanas del cliente y el servidor.
+    }
 
-
+    /**
+     * Muestra el mensaje de cuando los datos son invalidos
+     */
     @FXML
     public void validarDatos(){
         validacion_datos.setText("Ip o puerto invalidos");
         validacion_datos.setTextFill(Color.RED);
-    } // Muestra el mensaje de cuando los datos son invalidos
+    }
 }

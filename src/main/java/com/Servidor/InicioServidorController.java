@@ -5,12 +5,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
+/**
+ * Esta clase se encarga de la ventana de inicio del servidor.
+ */
 public class InicioServidorController {
     @FXML
     public TextField texto_puerto;
     @FXML
     public Label validacion_datos = new Label();
 
+    /**
+     * Esta funcion verifica que el puerto sea el correcto y que no este vacio  y si lo es, valida los datos y espera la conexion con le cliente.
+     */
     @FXML
     public void conectar(){
         if (!texto_puerto.getText().isEmpty()) {
@@ -26,11 +32,14 @@ public class InicioServidorController {
         }else {
             validarDatos();
         }
-    } // Esta funcion verifica que el puerto sea el correcto y que no este vacio  y si lo es, valida los datos y espera la conexion con le cliente.
+    }
 
+    /**
+     * Muestra el mensaje de validacion de datos.
+     */
     @FXML
     public void validarDatos(){
         validacion_datos.setText("Puerto Invalido");
         validacion_datos.setTextFill(Color.RED);
-    } // Muestra el mensaje de validacion de datos.
+    }
 }

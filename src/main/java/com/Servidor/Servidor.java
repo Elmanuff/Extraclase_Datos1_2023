@@ -4,11 +4,20 @@ import javafx.application.Platform;
 import java.net.*;
 import java.io.*;
 
+/**
+ * Esta clase controla todo lo necesario para el correcto
+ * funcionamiento del servidor, entradas
+ * salidas y lo que tiene que ver con el socket
+ */
 public class Servidor {
     public Socket socket;
     public DataInputStream entrada_servidor;
     public DataOutputStream salida_servidor;
 
+    /**
+     * Esta funcion ejecuta el hilo que permite que el servidor este siempre escuchando los datos que envia el cliente por medio del socket.
+     * @param puerto Es el puerto que se le brinda para poner inicializar la conexion.
+     */
     public void ejecutar(int puerto){
         Thread hilo = new Thread(() -> {
             try {
@@ -28,8 +37,12 @@ public class Servidor {
             }
         });
         hilo.start();
-    } // Esta funcion ejecuta el hilo que permite que el servidor este siempre escuchando los datos que envia el cliente por medio del socket.
+    }
 
+    /**
+     * Verifica el socket con el que se va a conectar el cliente y genera los prints para mantener un mejor control.
+     * @param puerto Es el puerto que se le brinda para poner inicializar la conexion.
+     */
     public void conexion(int puerto) {
         try {
             try (ServerSocket serverSocket = new ServerSocket(puerto)) {
@@ -40,8 +53,11 @@ public class Servidor {
         } catch (Exception e) {
             System.out.println("Error al iniciar conexion");
         }
-    } // Verifica el socket con el que se va a conectar el cliente y genera los prints para mantener un mejor control.
+    }
 
+    /**
+     * Genera las puertas que sirven para recibir los datos y enviar los datos.
+     */
     public void abrirFlujos() {
         try {
             entrada_servidor = new DataInputStream(socket.getInputStream());
@@ -50,8 +66,12 @@ public class Servidor {
         } catch (IOException e) {
             System.out.println("Error al abrir flujos");
         }
-    } // Genera los flujos que sirven para recibir los datos y enviar los datos.
+    }
 
+    /**
+     * Permite enviar el mensaje que se escribe.
+     * @param mensaje es el mensaje de texto puesto en el textbox para poder enviarlo al cliente.
+     */
     public void enviar(String mensaje){
         try {
             salida_servidor.writeUTF(mensaje);
@@ -59,8 +79,11 @@ public class Servidor {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    } // Permite enviar el mensaje que se escribe.
+    }
 
+    /**
+     * Permite recibir el mensaje y enviarlo a la ventana de chat para que sea puesto en esta.
+     */
     public void recibir(){
         try {
             while (true)
@@ -74,8 +97,11 @@ public class Servidor {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    } // Permite recibir el mensaje y enviarlo a la ventana de chat para que sea puesto en esta.
+    }
 
+    /**
+     * Cierra la conexion del servidor.
+     */
     public void cerrarConexion(){
         try {
             salida_servidor.close();
@@ -84,5 +110,5 @@ public class Servidor {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }// Cierra la conexion del servidor.
+    }
 }
