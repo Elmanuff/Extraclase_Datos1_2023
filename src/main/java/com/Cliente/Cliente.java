@@ -36,6 +36,7 @@ public class Cliente {
                 }
                 abrirFlujos();
                 recibir();
+                imprimir_javadoc();
 
             } finally {
                 cerrarConexion();
@@ -114,5 +115,9 @@ public class Cliente {
             System.out.println("No se cerro la conexion correctamente");
         }
     }
+    public void imprimir_javadoc(){
+
+    }
+
 }
 

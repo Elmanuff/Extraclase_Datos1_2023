@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+/**
+ * Esta clase se encarga de controlar los textos en la ventana de chat del cliente.
+ */
 public class ClienteController {
     @FXML
     public TextField texto_mensaje_cliente;
