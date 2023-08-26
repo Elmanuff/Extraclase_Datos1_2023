@@ -20,7 +20,7 @@ public class MainServidor extends Application {
      * the application scene can be set.
      * Applications may create other stages, if needed, but they will not be
      * primary stages.
-     * @throws IOException
+     * @throws IOException permite que al fallar, haya un error detallado con la parte y el porque del fallo.
      */
     @Override
     public void start(Stage stage) throws IOException {
